@@ -15,7 +15,7 @@
 <%--</body>--%>
 <%--</html>--%>
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="javascript:void(0)">Logo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -36,9 +36,9 @@
                     <a class="nav-link" href="javascript:void(0)">Giỏ Hàng</a>
                 </li>
             </ul>
-            <form class="d-flex">
+            <form class="d-flex mt-2">
                 <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-primary" type="button">Search</button>
+                <button class="btn btn-outline-warning" type="button">Search</button>
             </form>
         </div>
     </div>

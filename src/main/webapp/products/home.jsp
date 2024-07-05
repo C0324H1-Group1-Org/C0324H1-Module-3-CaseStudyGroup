@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Daisy-1</title>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
+<body class="bg-dark text-white">
 <%@ include file="/navbar/navbar.jsp" %>
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
@@ -28,14 +28,14 @@
 
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
-        <div class="carousel-item active h-50">
-            <img src="https://theme.hstatic.net/200000690725/1001078549/14/slide_3_img.jpg?v=422" alt="Los Angeles" class="d-block " style="width:100%">
+        <div class="carousel-item active h-100">
+            <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_1.jpg?v=190" alt="Los Angeles" class="d-block " style="width:100%">
         </div>
-        <div class="carousel-item h-50">
-            <img src="https://theme.hstatic.net/200000690725/1001078549/14/slide_4_img.jpg?v=422" alt="Chicago" class="d-block " style="width:100%">
+        <div class="carousel-item h-100">
+            <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_2.jpg?v=190" alt="Chicago" class="d-block " style="width:100%">
         </div>
-        <div class="carousel-item h-50">
-            <img src="https://theme.hstatic.net/200000690725/1001078549/14/slide_1_img.jpg?v=422" alt="New York" class="d-block " style="width:100%">
+        <div class="carousel-item h-100">
+            <img src="https://bizweb.dktcdn.net/100/493/598/themes/946486/assets/slider_3.jpg?1719998893397" alt="New York" class="d-block " style="width:100%">
         </div>
     </div>
 
@@ -53,52 +53,52 @@
     <h2>TOÀN BỘ SẢN PHẨM</h2>
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col">
-            <div class="card">
-                <img src="https://product.hstatic.net/200000690725/product/fstp003-bl-1_53580331053_o_cd70f360b4ac414e97e2a2f70db3f39e_master.jpg" class="card-img-top" alt="...">
+            <div class="card border border-warning border-4">
+                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_Cj0hRa5K2E.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">ÁO POLO</h5>
+                    <h5 class="card-title">BLACK BOXY T-SHIRT</h5>
                     <p class="card-text">Mô tả sản phẩm</p>
-                    <p>199000 VND</p>
+                    <p>499.000 VND</p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card">
-                <img src="https://product.hstatic.net/200000690725/product/fstp003-bl-1_53580331053_o_cd70f360b4ac414e97e2a2f70db3f39e_master.jpg" class="card-img-top" alt="...">
+            <div class="card border border-warning border-4">
+                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_wBH9kgYjf0.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">ÁO POLO</h5>
+                    <h5 class="card-title">BROWN BOXY T-SHIRT</h5>
                     <p class="card-text">Mô tả sản phẩm</p>
-                    <p>199000 VND</p>
+                    <p>499.000 VND</p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card">
-                <img src="https://product.hstatic.net/200000690725/product/fstp003-bl-1_53580331053_o_cd70f360b4ac414e97e2a2f70db3f39e_master.jpg" class="card-img-top" alt="...">
+            <div class="card border border-warning border-4">
+                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_8J26sgeGwc.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">ÁO POLO</h5>
+                    <h5 class="card-title">DANCER BOXY T-SHIRT</h5>
                     <p class="card-text">Mô tả sản phẩm</p>
-                    <p>199000 VND</p>
+                    <p>499.000 VND</p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card">
-                <img src="https://product.hstatic.net/200000690725/product/fstp003-bl-1_53580331053_o_cd70f360b4ac414e97e2a2f70db3f39e_master.jpg" class="card-img-top" alt="...">
+            <div class="card border border-warning border-4">
+                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_QglkJjSVrD.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">ÁO POLO</h5>
+                    <h5 class="card-title">PINK BOXY T-SHIRT</h5>
                     <p class="card-text">Mô tả sản phẩm</p>
-                    <p>199000 VND</p>
+                    <p>499.000 VND</p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card">
-                <img src="https://product.hstatic.net/200000690725/product/fstp003-bl-1_53580331053_o_cd70f360b4ac414e97e2a2f70db3f39e_master.jpg" class="card-img-top" alt="...">
+            <div class="card border border-warning border-4">
+                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240401_4r3YqcokET.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">ÁO POLO</h5>
+                    <h5 class="card-title">BLACK FLARE TROUSERS</h5>
                     <p class="card-text">Mô tả sản phẩm</p>
-                    <p>199000 VND</p>
+                    <p>999.000 VND</p>
                 </div>
             </div>
         </div>
