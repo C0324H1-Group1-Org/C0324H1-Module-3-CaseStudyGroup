@@ -29,13 +29,13 @@
 
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active ">
             <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_1.jpg?v=190" alt="Los Angeles" class="d-block " style="width:100%">
         </div>
-        <div class="carousel-item h-100">
+        <div class="carousel-item">
             <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_2.jpg?v=190" alt="Chicago" class="d-block " style="width:100%">
         </div>
-        <div class="carousel-item h-100">
+        <div class="carousel-item">
             <img src="https://bizweb.dktcdn.net/100/493/598/themes/946486/assets/slider_3.jpg?1719998893397" alt="New York" class="d-block " style="width:100%">
         </div>
     </div>
@@ -54,51 +54,48 @@
     <h2>TOÀN BỘ SẢN PHẨM</h2>
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col">
-            <div class="card border border-warning border-4">
+            <div class="card border border-warning border-3">
                 <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_Cj0hRa5K2E.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">BLACK BOXY T-SHIRT</h5>
-                    <p class="card-text">Mô tả sản phẩm</p>
-                    <p>499.000 VND</p>
+                    <div >
+                        <p>499.000 VND</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card border border-warning border-4">
+            <div class="card border border-warning border-3">
                 <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_wBH9kgYjf0.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">BROWN BOXY T-SHIRT</h5>
-                    <p class="card-text">Mô tả sản phẩm</p>
                     <p>499.000 VND</p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card border border-warning border-4">
+            <div class="card border border-warning border-3">
                 <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_8J26sgeGwc.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">DANCER BOXY T-SHIRT</h5>
-                    <p class="card-text">Mô tả sản phẩm</p>
                     <p>499.000 VND</p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card border border-warning border-4">
+            <div class="card border border-warning border-3">
                 <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_QglkJjSVrD.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PINK BOXY T-SHIRT</h5>
-                    <p class="card-text">Mô tả sản phẩm</p>
                     <p>499.000 VND</p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card border border-warning border-4">
+            <div class="card border border-warning border-3">
                 <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240401_4r3YqcokET.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">BLACK FLARE TROUSERS</h5>
-                    <p class="card-text">Mô tả sản phẩm</p>
                     <p>999.000 VND</p>
                 </div>
             </div>
