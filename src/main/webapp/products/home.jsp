@@ -28,17 +28,18 @@
     </div>
 
     <!-- The slideshow/carousel -->
-    <div class="carousel-inner">
-        <div class="carousel-item active ">
-            <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_1.jpg?v=190" alt="Los Angeles" class="d-block " style="width:100%">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_1.jpg?v=190" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://pos.nvncdn.com/fcb45e-89373/bn/20240401_dXGuRmiz.gif" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://pos.nvncdn.com/fcb45e-89373/bn/20240105_YFCXEWGT.gif" class="d-block w-100" alt="...">
+            </div>
         </div>
-        <div class="carousel-item">
-            <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_2.jpg?v=190" alt="Chicago" class="d-block " style="width:100%">
-        </div>
-        <div class="carousel-item">
-            <img src="https://bizweb.dktcdn.net/100/493/598/themes/946486/assets/slider_3.jpg?1719998893397" alt="New York" class="d-block " style="width:100%">
-        </div>
-    </div>
 
     <!-- Left and right controls/icons -->
     <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
