@@ -14,6 +14,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-dark text-white">
 <%@ include file="/navbar/navbar.jsp" %>
@@ -28,7 +29,7 @@
 
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
-        <div class="carousel-item active h-100">
+        <div class="carousel-item active">
             <img src="https://theme.hstatic.net/200000455169/1001172863/14/home_slider_image_1.jpg?v=190" alt="Los Angeles" class="d-block " style="width:100%">
         </div>
         <div class="carousel-item h-100">
