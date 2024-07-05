@@ -38,8 +38,9 @@
             </ul>
             <form class="d-flex mt-2">
                 <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-warning" type="button">Search</button>
+                <button class="btn btn-outline-light" type="button">Search</button>
             </form>
+            <a href="/login?action=login" class="btn btn-outline-warning ms-2 mb-2">Login</a>
         </div>
     </div>
 </nav>
