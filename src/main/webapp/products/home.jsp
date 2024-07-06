@@ -54,53 +54,19 @@
 
     <h2>TOÀN BỘ SẢN PHẨM</h2>
     <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
-            <div class="card border border-warning border-3">
-                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_Cj0hRa5K2E.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">BLACK BOXY T-SHIRT</h5>
-                    <div >
-                        <p>499.000 VND</p>
+        <c:forEach items="${products}" var="product">
+            <div class="col">
+                <div class="card border border-warning border-3">
+                    <img src="${product.getUrlImage()}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <div >
+                            <p>${product.price} VND</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card border border-warning border-3">
-                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_wBH9kgYjf0.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">BROWN BOXY T-SHIRT</h5>
-                    <p>499.000 VND</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card border border-warning border-3">
-                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_8J26sgeGwc.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">DANCER BOXY T-SHIRT</h5>
-                    <p>499.000 VND</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card border border-warning border-3">
-                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240625_QglkJjSVrD.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">PINK BOXY T-SHIRT</h5>
-                    <p>499.000 VND</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card border border-warning border-3">
-                <img src="https://pos.nvncdn.com/fcb45e-89373/ps/20240401_4r3YqcokET.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">BLACK FLARE TROUSERS</h5>
-                    <p>999.000 VND</p>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
 
     </div>
 
