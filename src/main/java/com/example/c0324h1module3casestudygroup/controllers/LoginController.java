@@ -1,5 +1,7 @@
 package com.example.c0324h1module3casestudygroup.controllers;
 
+import com.example.c0324h1module3casestudygroup.models.Account;
+import com.example.c0324h1module3casestudygroup.models.Customer;
 import com.example.c0324h1module3casestudygroup.services.implement.CustomerService;
 import com.example.c0324h1module3casestudygroup.services.ICustomerService;
 
@@ -86,6 +88,7 @@ public class LoginController extends HttpServlet {
                 throw new RuntimeException(e);
             }
         } else {
+            request.setAttribute("username", username);
             request.setAttribute("message", "Tài khoản, mật khẩu không chính xác");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login/login.jsp");
             try {
@@ -105,5 +108,32 @@ public class LoginController extends HttpServlet {
         String address = request.getParameter("address");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
+        if (customerService.isUsernameTaken(username)) {
+            request.setAttribute("name", name);
+            request.setAttribute("phone", phone);
+            request.setAttribute("email", email);
+            request.setAttribute("address", address);
+            request.setAttribute("username", username);
+            request.setAttribute("message", "Tài khoản đã tồn tại");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/login/register.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return;
+        }
+
+        Customer customer = new Customer(name, phone, email, address);
+        Account account = new Account(username, password);
+        customerService.register(customer, account);
+        try {
+            response.sendRedirect("/login?action=login");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
