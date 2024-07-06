@@ -1,4 +1,4 @@
-package com.example.c0324h1module3casestudygroup.repositories.ipml;
+package com.example.c0324h1module3casestudygroup.repositories.implement;
 
 import com.example.c0324h1module3casestudygroup.dto.ProductDTO;
 import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
