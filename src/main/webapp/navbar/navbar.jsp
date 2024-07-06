@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--<html>--%>
 <%--<head>--%>
 <%--    <title>Title</title>--%>
@@ -38,8 +39,25 @@
             </ul>
             <form class="d-flex mt-2">
                 <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-warning" type="button">Search</button>
+                <button class="btn btn-outline-light" type="button">Search</button>
             </form>
+<%--            <a href="/login?action=login" class="btn btn-outline-warning ms-2 mb-2">Login</a>--%>
+            <c:choose>
+                <c:when test="${not empty username}">
+                    <div class="dropdown ms-2 mb-2">
+                        <button class="btn btn-outline-warning dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                ${username}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="/login?action=infor">Infor</a></li>
+                            <li><a class="dropdown-item" href="/login?action=logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <a href="/login?action=login" class="btn btn-outline-warning ms-2 mb-2">Login</a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </nav>
