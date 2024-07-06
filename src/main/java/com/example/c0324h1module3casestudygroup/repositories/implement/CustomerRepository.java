@@ -1,5 +1,6 @@
 package com.example.c0324h1module3casestudygroup.repositories.implement;
 
+import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
 import com.example.c0324h1module3casestudygroup.repositories.ICustomerRepository;
 
 import java.sql.PreparedStatement;
