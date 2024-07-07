@@ -57,25 +57,25 @@
                         <form class="row g-3" action="" method="post">
                             <div class="col-md-6">
                                 <label for="fullName" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" name="name" value="${name}" id="fullName" placeholder="Full Name" required>
+                                <input type="text" class="form-control" name="name" value="${user.name}" id="fullName" placeholder="Full Name" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="phoneNumber" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" name="phone" value="${phone}" id="phoneNumber" placeholder="Phone Number" required>
+                                <input type="text" class="form-control" name="phone" value="${user.phone}" id="phoneNumber" placeholder="Phone Number" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" value="${email}" id="email" placeholder="name@example.com" required>
+                                <input type="email" class="form-control" name="email" value="${user.email}" id="email" placeholder="name@example.com" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" value="${address}" id="address" placeholder="Address" required>
+                                <input type="text" class="form-control" name="address" value="${user.address}" id="address" placeholder="Address" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="username" class="form-label">Username</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                                    <input type="text" class="form-control" name="username" value="${username}" id="username" placeholder="Username" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                                    <input type="text" class="form-control" name="username" value="${user.username}" id="username" placeholder="Username" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                                 </div>
                             </div>
                             <div class="col-md-6">

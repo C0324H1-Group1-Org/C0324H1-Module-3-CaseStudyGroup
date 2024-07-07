@@ -34,7 +34,7 @@
                     <a class="nav-link" href="javascript:void(0)">Phụ Kiện</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Giỏ Hàng</a>
+                    <a class="nav-link" href="/cart">Giỏ Hàng</a>
                 </li>
             </ul>
             <form class="d-flex mt-2">
