@@ -94,31 +94,30 @@
                             <p class="small text-muted mb-0">Date order: </p>
                         </div>
 
-<%--                        <c:forEach var="">--%>
-
-<%--                        </c:forEach>--%>
-                        <div class="card shadow-0 border mb-4">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
-                                             class="img-fluid" alt="imageProduct">
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0">Name Product</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Quantity: 1</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Price: 499 VND</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Status</p>
+                        <c:forEach var="detail" items="${orderDetails}">
+                            <div class="card shadow-0 border mb-4">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="${detail.urlImage}" class="img-fluid" alt="Product Image">
+                                        </div>
+                                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0">${detail.name}</p>
+                                        </div>
+                                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0 small">Quantity: ${detail.quantity}</p>
+                                        </div>
+                                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0 small">Price: ${detail.price} VND</p>
+                                        </div>
+                                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0 small">${detail.status}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </c:forEach>
+
 
                         <div class="d-flex justify-content-between pt-2">
                             <p class="fw-bold mb-0">Order Details</p>

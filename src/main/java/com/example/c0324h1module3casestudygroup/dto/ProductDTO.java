@@ -11,11 +11,12 @@ public class ProductDTO {
     private int quantity;
     private Date date;
 
-    public ProductDTO(String urlImage, String name, int quantity, long price) {
+    public ProductDTO(String urlImage, String name, int quantity, long price, Date date) {
         UrlImage = urlImage;
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this.date = date;
     }
 
     public int getQuantity() {
