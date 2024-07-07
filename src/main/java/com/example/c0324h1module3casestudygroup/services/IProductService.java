@@ -6,4 +6,9 @@ import java.util.List;
 
 public interface IProductService {
     List<ProductDTO> findAllProduct();
+
+    List<ProductDTO> findProductByIdType(int id);
+
+    List<ProductDTO> findByName(String name);
+
 }

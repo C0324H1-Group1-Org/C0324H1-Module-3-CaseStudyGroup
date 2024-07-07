@@ -13,4 +13,14 @@ public class ProductService implements IProductService {
     public List<ProductDTO> findAllProduct() {
         return productsRepository.findAllProduct();
     }
+
+    @Override
+    public List<ProductDTO> findProductByIdType(int id) {
+        return productsRepository.findProductByIdType(id);
+    }
+
+    @Override
+    public List<ProductDTO> findByName(String name) {
+        return productsRepository.findByName(name);
+    }
 }
