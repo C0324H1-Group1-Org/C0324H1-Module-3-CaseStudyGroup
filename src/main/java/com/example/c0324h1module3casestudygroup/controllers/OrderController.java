@@ -29,7 +29,18 @@ public class OrderController extends HttpServlet {
                 break;
             case "order_detail":
                 viewOrderDetail(request, response);
+            case "done":
+                viewConfirm(request, response);
                 break;
+        }
+    }
+
+    private void viewConfirm(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/user/done.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -78,10 +89,21 @@ public class OrderController extends HttpServlet {
             case "order_detail":
                 viewOrderDetail(request, response);
                 break;
+            case "done":
+                doneOrder(request, response);
+                break;
         }
     }
 
-    private void OrderCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void doneOrder(HttpServletRequest request, HttpServletResponse response) {
 
+    }
+
+    private void OrderCustomer(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            response.sendRedirect("user/done.jsp");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

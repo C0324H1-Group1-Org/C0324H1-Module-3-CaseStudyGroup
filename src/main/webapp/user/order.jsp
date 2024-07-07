@@ -113,9 +113,11 @@
                   </label>
                 </div>
               </div>
-              <div class="col-12 text-center">
-                <button class="btn btn-warning btn-lg" type="submit">Xác nhận</button>
-              </div>
+              <form action="" method="post">
+                <div class="col-12 text-center">
+                  <button class="btn btn-warning btn-lg" type="submit">Xác nhận</button>
+                </div>
+              </form>
             </form>
           </div>
         </div>
