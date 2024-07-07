@@ -72,10 +72,24 @@ public class ProductsRepository implements IProductsRepository {
     @Override
     public List<ProductDTO> findByName(String name) {
         List<ProductDTO> productDTOS = new ArrayList<>();
+        int idProduct;
+        String UrlImage;
+        String nameProduct;
+        long price;
         try {
             PreparedStatement preparedStatement = BaseRepository.getConnection()
                     .prepareStatement("SELECT id_product, url_image, name_product, price FROM product where product.name_product like CONCAT('%',?,'%')");
             preparedStatement.setString(1,"%" + name + "%");
+            ResultSet resultSet =preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                idProduct = resultSet.getInt("id_product");
+                UrlImage = resultSet.getString("url_image");
+                nameProduct = resultSet.getString("name_product");
+                price = resultSet.getLong("price");
+
+                ProductDTO productDTO = new ProductDTO(idProduct, UrlImage, nameProduct, price);
+                productDTOS.add(productDTO);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

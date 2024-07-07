@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/navbar?action= shirts">Áo</a>
+                    <a class="nav-link" href="/daisy?action= shirts">Áo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/navbar?action= pants">Quần</a>
+                    <a class="nav-link" href="/daisy?action= pants">Quần</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">Phụ Kiện</a>
