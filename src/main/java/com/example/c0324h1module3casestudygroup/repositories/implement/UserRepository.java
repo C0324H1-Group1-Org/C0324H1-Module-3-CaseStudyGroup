@@ -68,4 +68,20 @@ public class UserRepository implements IUserRepository {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public int getUserIdByUsername(String username) {
+        try {
+            String sql = "select customer.id_customer from customer join account on customer.id_acc = account.id_acc where account.username = ?";
+            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id_customer");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return -1;
+    }
 }

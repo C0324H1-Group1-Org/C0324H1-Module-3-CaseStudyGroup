@@ -8,4 +8,6 @@ public interface IUserService {
     boolean isUsernameTaken(String username);
 
     void register(UserDTO userDTO);
+
+    int getUserIdByUsername(String username);
 }

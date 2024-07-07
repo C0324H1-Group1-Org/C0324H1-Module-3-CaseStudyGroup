@@ -1,11 +1,38 @@
 package com.example.c0324h1module3casestudygroup.dto;
 
+import java.util.Date;
+
 public class ProductDTO {
     private int id;
     private String UrlImage;
     private String name;
     private long price;
 
+    private int quantity;
+    private Date date;
+
+    public ProductDTO(String urlImage, String name, int quantity, long price) {
+        UrlImage = urlImage;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public int getId() {
         return id;

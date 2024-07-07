@@ -21,4 +21,9 @@ public class UserService implements IUserService {
     public void register(UserDTO userDTO) {
         userRepository.register(userDTO);
     }
+
+    @Override
+    public int getUserIdByUsername(String username) {
+        return userRepository.getUserIdByUsername(username);
+    }
 }

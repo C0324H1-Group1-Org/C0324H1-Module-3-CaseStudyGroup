@@ -86,12 +86,16 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         boolean isLogin = userService.isValidUser(username, password);
         if (isLogin) {
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            try {
-                response.sendRedirect("/daisy");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            int customerId = userService.getUserIdByUsername(username);
+            if (customerId != -1) {
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+                session.setAttribute("customerId", customerId);
+                try {
+                    response.sendRedirect("/daisy");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         } else {
             request.setAttribute("username", username);

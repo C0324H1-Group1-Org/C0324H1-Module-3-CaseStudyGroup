@@ -1,6 +1,7 @@
 package com.example.c0324h1module3casestudygroup.repositories.implement;
 
 import com.example.c0324h1module3casestudygroup.dto.CartDTO;
+import com.example.c0324h1module3casestudygroup.models.Customer;
 import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
 import com.example.c0324h1module3casestudygroup.repositories.ICustomerRepository;
 
@@ -62,6 +63,28 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public Customer getCustomerById(int customerId) {
+        String sql = "select * from customer where customer.id_customer = ?";
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, customerId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                Customer customer = new Customer();
+                customer.setId(rs.getInt("id_customer"));
+                customer.setName(rs.getString("name_customer"));
+                customer.setPhone(rs.getString("phone"));
+                customer.setEmail(rs.getString("email"));
+                customer.setAddress(rs.getString("address"));
+                return customer;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
 

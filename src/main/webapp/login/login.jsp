@@ -59,7 +59,7 @@
                             <div class="row gy-2 overflow-hidden">
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="username" value="${user.username}" id="username" placeholder="username" required>
+                                        <input type="text" class="form-control" name="username" value="${username}" id="username" placeholder="username" required>
                                         <label for="username" class="form-label">Username</label>
                                     </div>
                                 </div>
