@@ -53,11 +53,11 @@ public class OrderRepository implements IOrderRepository {
     @Override
     public List<OrderDetailDTO> getOrderDetailsByOrderId(int orderId) {
         List<OrderDetailDTO> orderDetails = new ArrayList<>();
-        String sql = "select p.url_image, p.name_product, od.quantity, p.price, o.date_order " +
-                "from orders_detail od " +
-                "join product p on od.id_product = p.id_product " +
-                "JOIN orders o ON od.id_order = o.id_order " +
-                "WHERE od.id_order = ?";
+        String sql = "select p.url_image, p.name_product, od.quantity, p.price, o.date_order\n" +
+                "from orders_detail od\n" +
+                "         join product p on od.id_product = p.id_product\n" +
+                "         join orders o on od.id_order = o.id_order\n" +
+                "where od.id_order = ?";
 
         try{
             PreparedStatement stmt = BaseRepository.getConnection().prepareStatement(sql);

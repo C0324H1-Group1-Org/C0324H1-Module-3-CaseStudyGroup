@@ -68,7 +68,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
               <li><a class="dropdown-item" href="/user?action=info">My account</a></li>
-              <li><a class="dropdown-item" href="/user?action=order">Your order</a></li>
+              <li><a class="dropdown-item" href="/user?action=order_detail">Your order</a></li>
               <li><a class="dropdown-item" href="/login?action=logout">Logout</a></li>
             </ul>
           </div>
