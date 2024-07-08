@@ -1,8 +1,6 @@
 package com.example.c0324h1module3casestudygroup.repositories.implement;
 
-import com.example.c0324h1module3casestudygroup.dto.CartDTO;
-import com.example.c0324h1module3casestudygroup.dto.OrderDetailDTO;
-import com.example.c0324h1module3casestudygroup.dto.ProductDTO;
+import com.example.c0324h1module3casestudygroup.dto.*;
 import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
 import com.example.c0324h1module3casestudygroup.repositories.IOrderRepository;
 
@@ -79,5 +77,35 @@ public class OrderRepository implements IOrderRepository {
         }
 
         return orderDetails;
+    }
+
+    @Override
+    public List<OrderDTO> getOrderByCustomerId(int customerId) {
+        List<OrderDTO> orderDTOList = new ArrayList<>();
+        String sql_select_order_by_id_customer = "SELECT id_order,date_order,status FROM daisy.orders where id_customer=? ";
+        String sql_select_order_detail_by_id_order = "SELECT url_image,name_product,quantity,price FROM daisy.orders_detail o inner join product p on o.id_product = p.id_product where id_order=?";
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement(sql_select_order_by_id_customer);
+            preparedStatement.setInt(1,customerId);
+            ResultSet set = preparedStatement.executeQuery();
+            while (set.next()){
+                int orderId = set.getInt("id_order");
+                OrderDTO orderDTO = new OrderDTO(orderId,set.getDate("date_order"),set.getString("status"));
+                PreparedStatement preparedStatement_sub = BaseRepository.getConnection().prepareStatement(sql_select_order_detail_by_id_order);
+                preparedStatement_sub.setInt(1,orderId);
+                ResultSet orderDetailSet = preparedStatement_sub.executeQuery();
+                List<OrderProductDTO> orderProductDTOS = new ArrayList<>();
+                while (orderDetailSet.next()){
+                    OrderProductDTO orderProductDTO = new OrderProductDTO(orderDetailSet.getString("url_image"),orderDetailSet.getString("name_product"),orderDetailSet.getInt("quantity"),orderDetailSet.getFloat("price"));
+                    orderProductDTOS.add(orderProductDTO);
+                }
+                orderDTO.setOrderProductDTOS(orderProductDTOS);
+                orderDTOList.add(orderDTO);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return orderDTOList;
     }
 }
