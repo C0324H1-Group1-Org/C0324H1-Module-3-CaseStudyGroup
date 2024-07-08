@@ -2,6 +2,7 @@ package com.example.c0324h1module3casestudygroup.controllers;
 
 import com.example.c0324h1module3casestudygroup.dto.CartDTO;
 import com.example.c0324h1module3casestudygroup.dto.ProductDTO;
+import com.example.c0324h1module3casestudygroup.models.Product;
 import com.example.c0324h1module3casestudygroup.repositories.IProductsRepository;
 import com.example.c0324h1module3casestudygroup.repositories.implement.ProductsRepository;
 import com.example.c0324h1module3casestudygroup.services.ICustomerService;
