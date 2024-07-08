@@ -1,28 +1,49 @@
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />--%>
+<%--    <meta name="description" content="" />--%>
+<%--    <meta name="author" content="" />--%>
     <title>Chi tiết sản phẩm</title>
     <!-- Favicon-->
-    <%--    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />--%>
-    <link href="styles.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap icons-->
+
+<%--    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dark-background {
+            background-color: #040303;
+            color: white;
+        }
+        .dark-background .btn-outline-dark {
+            border-color: white;
+            color: white;
+        }
+        .dark-background .btn-outline-dark:hover {
+            background-color: white;
+            color: black;
+        }
+        .dark-in{
+            background-color: #292727;
+            border-radius: 5px;
+        }
+
+    </style>
+    <!-- Bootstrap icons-->
+<%--    <link href="styles.css" rel="stylesheet" />--%>
     <!-- Core theme CSS (includes Bootstrap)-->
+
 
 </head>
 <body>
 <!-- Navigation-->
 <%@ include file="/navbar/navbar.jsp" %>
 <!-- Product section-->
-<div class="py-5">
-    <div class="container px-4 px-lg-5 my-5">
+<div class="py-5 dark-background">
+    <div class="container px-4 px-lg-5 my-5 dark-in">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${detail.getUrlImage()}" alt="..." /></div>
             <div class="col-md-6">
@@ -37,10 +58,11 @@
                     <input type="hidden" name="idProduct" value="${detail.id}">
                     <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem" name="quantity"/>
 
-                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                        <button class="btn btn-outline-warning flex-shrink-0" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Add to cart
                         </button>
+
                 </div>
                 </form>
                 <c:if test="${not empty sessionScope.addToCartMessage}">
@@ -56,11 +78,9 @@
 <!-- Related items section-->
 
 <!-- Footer-->
-<footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-</footer>
+<%@ include file="/footer/footer.jsp" %>
 <!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>--%>
 <!-- Core theme JS-->
 </body>
 </html>
