@@ -69,6 +69,7 @@
         </c:forEach>
 
     </div>
+    <a href="/daisy?page=1">1</a>
 
 </div>
 </div>

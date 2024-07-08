@@ -18,6 +18,7 @@
 </head>
 <body>
 <%@ include file="/navbar/navbar.jsp" %>
+
 <div class="container mt-2">
     <h1 class="display-4">GIỎ HÀNG</h1>
     <hr>
