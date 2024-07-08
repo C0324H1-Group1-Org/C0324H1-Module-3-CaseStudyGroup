@@ -40,6 +40,9 @@ public class OrderController extends HttpServlet {
             case "done":
                 viewThankYou(request, response);
                 break;
+            default:
+                viewOrder(request, response);
+                break;
         }
     }
 
