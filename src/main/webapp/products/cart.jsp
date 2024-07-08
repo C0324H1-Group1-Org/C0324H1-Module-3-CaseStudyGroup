@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Cart</title>
+    <title>Giỏ hàng</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Latest compiled JavaScript -->
@@ -18,6 +18,7 @@
 </head>
 <body>
 <%@ include file="/navbar/navbar.jsp" %>
+
 <div class="container mt-2">
     <h1 class="display-4">GIỎ HÀNG</h1>
     <hr>
@@ -99,7 +100,6 @@
                         Tong tien <br>
                         <fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND
                     </td>
-<%--                    <td><button type="button" class="btn btn-outline-success">Dat hang</button></td>--%>
                     <td><a href="/order?action=order"><button type="button" class="btn btn-outline-success">Dat hang</button></a></td>
                 </tr>
 

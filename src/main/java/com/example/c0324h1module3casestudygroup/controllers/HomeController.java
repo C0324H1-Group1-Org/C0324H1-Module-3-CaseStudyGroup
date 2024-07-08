@@ -29,6 +29,11 @@ public class HomeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int pageId = 1;
+        String page = req.getParameter("page");
+        if (page != null){
+            pageId = Integer.parseInt(page);
+        }
         String action = req.getParameter("action");
         int id_type_product;
         if (action == null) {

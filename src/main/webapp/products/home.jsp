@@ -48,6 +48,7 @@
     <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
+    </div>
 </div>
 
 <div class="container pt-3">
@@ -121,6 +122,7 @@
 <%-->>>>>>> de1f7261adb5a466389d519e9a882d752281f193--%>
 
     </div>
+    <a href="/daisy?page=1">1</a>
 
 </div>
 </div>
