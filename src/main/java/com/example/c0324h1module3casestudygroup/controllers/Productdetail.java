@@ -1,7 +1,9 @@
 package com.example.c0324h1module3casestudygroup.controllers;
 
 import com.example.c0324h1module3casestudygroup.models.Product;
+import com.example.c0324h1module3casestudygroup.services.ICustomerService;
 import com.example.c0324h1module3casestudygroup.services.IProductService;
+import com.example.c0324h1module3casestudygroup.services.implement.CustomerService;
 import com.example.c0324h1module3casestudygroup.services.implement.ProductService;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +18,7 @@ import java.io.IOException;
 @WebServlet(name="ProducDetail", value = "/productdetail")
 public class Productdetail extends HttpServlet {
     private static IProductService productService = new ProductService();
+    private static ICustomerService customerService = new CustomerService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
@@ -29,8 +32,10 @@ public class Productdetail extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int idProduct = Integer.parseInt(req.getParameter("idProduct"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
+        int customerId = (int) req.getSession().getAttribute("customerId");
         HttpSession httpSession = req.getSession();
         httpSession.setAttribute("addToCartMessage","Thêm "+quantity+" sản phẩm vào giỏ hàng thành công");
+        customerService.addToCart(customerId,idProduct,quantity);
         resp.sendRedirect(req.getContextPath() + "/productdetail?pid="+idProduct);
     }
 }

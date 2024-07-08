@@ -31,5 +31,10 @@ public class CustomerService implements ICustomerService {
         return customerRepository.getCustomerById(customerId);
     }
 
+    @Override
+    public void addToCart(int customerId,int idProduct, int quantity) {
+        customerRepository.addToCart(customerId,idProduct,quantity);
+    }
+
 
 }

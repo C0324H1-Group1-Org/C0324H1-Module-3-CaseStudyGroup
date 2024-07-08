@@ -14,4 +14,6 @@ public interface ICustomerRepository {
     void updateCartItem(int idCartUpdate, int idProductUpdate, int inputQuantity);
 
     Customer getCustomerById(int customerId);
+
+    void addToCart(int customerId,int idProduct, int quantity);
 }
