@@ -21,7 +21,7 @@ public class OrderRepository implements IOrderRepository {
             preparedStatement.setInt(1, customerId);
             preparedStatement.setDate(2, Date.valueOf(dateOrder));
             preparedStatement.setString(3, status);
-            orderId = preparedStatement.executeUpdate();
+            orderId=preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
