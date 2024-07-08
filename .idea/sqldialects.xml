@@ -2,6 +2,10 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/c0324h1module3casestudygroup/repositories/implement/CustomerRepository.java" dialect="MySQL" />
+<<<<<<< HEAD
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/c0324h1module3casestudygroup/repositories/implement/ProductsRepository.java" dialect="GenericSQL" />
+=======
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/c0324h1module3casestudygroup/repositories/implement/UserRepository.java" dialect="MySQL" />
+>>>>>>> de1f7261adb5a466389d519e9a882d752281f193
   </component>
 </project>
