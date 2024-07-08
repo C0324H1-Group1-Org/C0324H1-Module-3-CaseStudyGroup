@@ -95,7 +95,6 @@ public class HomeController extends HttpServlet {
                         List<ProductDTO> productDTOS = productService.findByName(search);
                         req.setAttribute("products", productDTOS);
                         req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
-                        resp.sendRedirect(req.getContextPath() + "/daisy");
                         break;
                     }
                 case "logo":

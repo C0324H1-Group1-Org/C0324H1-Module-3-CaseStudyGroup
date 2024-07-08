@@ -6,6 +6,7 @@ import com.example.c0324h1module3casestudygroup.dto.ProductDTO;
 import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
 import com.example.c0324h1module3casestudygroup.repositories.IOrderRepository;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,7 +22,11 @@ public class OrderRepository implements IOrderRepository {
             preparedStatement.setInt(1, customerId);
             preparedStatement.setDate(2, Date.valueOf(dateOrder));
             preparedStatement.setString(3, status);
-            orderId = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
+            ResultSet s = preparedStatement.getGeneratedKeys();
+            if (s.next()){
+                orderId = s.getInt(1);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
