@@ -48,6 +48,7 @@
     <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
+    </div>
 </div>
 
 <div class="container pt-3">
