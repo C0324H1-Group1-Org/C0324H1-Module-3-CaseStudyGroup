@@ -8,5 +8,10 @@ import java.util.List;
 public interface IProductsRepository {
     List<ProductDTO> findAllProduct();
 
+    List<ProductDTO> findProductByIdType(int id);
+
+    List<ProductDTO> findByName(String name);
+
     Product getProductById(String id);
 }
+

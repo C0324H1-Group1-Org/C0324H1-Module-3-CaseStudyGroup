@@ -68,7 +68,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
               <li><a class="dropdown-item" href="/user?action=info">My account</a></li>
-              <li><a class="dropdown-item" href="/user?action=order">Your order</a></li>
+              <li><a class="dropdown-item" href="/user?action=order_detail">Your order</a></li>
               <li><a class="dropdown-item" href="/login?action=logout">Logout</a></li>
             </ul>
           </div>
@@ -113,7 +113,7 @@
                   </label>
                 </div>
               </div>
-              <form action="order?action=order&id=${order.id}" method="post">
+              <form action="order?action=done" method="post">
                 <div class="col-12 text-center">
                   <button class="btn btn-warning btn-lg" type="submit">Xác nhận</button>
                 </div>

@@ -6,6 +6,7 @@ import com.example.c0324h1module3casestudygroup.dto.ProductDTO;
 import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
 import com.example.c0324h1module3casestudygroup.repositories.IOrderRepository;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,6 +23,10 @@ public class OrderRepository implements IOrderRepository {
             preparedStatement.setDate(2, Date.valueOf(dateOrder));
             preparedStatement.setString(3, status);
             preparedStatement.executeUpdate();
+            ResultSet s = preparedStatement.getGeneratedKeys();
+            if (s.next()){
+                orderId = s.getInt(1);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -48,11 +53,11 @@ public class OrderRepository implements IOrderRepository {
     @Override
     public List<OrderDetailDTO> getOrderDetailsByOrderId(int orderId) {
         List<OrderDetailDTO> orderDetails = new ArrayList<>();
-        String sql = "select p.url_image, p.name_product, od.quantity, p.price, o.date_order " +
-                "from orders_detail od " +
-                "join product p on od.id_product = p.id_product " +
-                "JOIN orders o ON od.id_order = o.id_order " +
-                "WHERE od.id_order = ?";
+        String sql = "select p.url_image, p.name_product, od.quantity, p.price, o.date_order\n" +
+                "from orders_detail od\n" +
+                "         join product p on od.id_product = p.id_product\n" +
+                "         join orders o on od.id_order = o.id_order\n" +
+                "where od.id_order = ?";
 
         try{
             PreparedStatement stmt = BaseRepository.getConnection().prepareStatement(sql);
