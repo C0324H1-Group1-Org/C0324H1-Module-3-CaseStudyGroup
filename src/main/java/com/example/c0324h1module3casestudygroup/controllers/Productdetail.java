@@ -30,12 +30,17 @@ public class Productdetail extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int idProduct = Integer.parseInt(req.getParameter("idProduct"));
-        int quantity = Integer.parseInt(req.getParameter("quantity"));
-        int customerId = (int) req.getSession().getAttribute("customerId");
-        HttpSession httpSession = req.getSession();
-        httpSession.setAttribute("addToCartMessage","Thêm "+quantity+" sản phẩm vào giỏ hàng thành công");
-        customerService.addToCart(customerId,idProduct,quantity);
-        resp.sendRedirect(req.getContextPath() + "/productdetail?pid="+idProduct);
+        HttpSession httpSession = req.getSession(false);
+        if (httpSession.getAttribute("customerId") == null){
+            resp.sendRedirect("/login?action=login");
+        } else {
+            int idProduct = Integer.parseInt(req.getParameter("idProduct"));
+            int quantity = Integer.parseInt(req.getParameter("quantity"));
+            int customerId = (int) req.getSession().getAttribute("customerId");
+            httpSession.setAttribute("addToCartMessage","Thêm "+quantity+" sản phẩm vào giỏ hàng thành công");
+            customerService.addToCart(customerId,idProduct,quantity);
+            resp.sendRedirect(req.getContextPath() + "/productdetail?pid="+idProduct);
+        }
+
     }
 }
