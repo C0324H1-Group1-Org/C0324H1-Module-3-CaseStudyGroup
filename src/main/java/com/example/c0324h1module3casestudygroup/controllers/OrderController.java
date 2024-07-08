@@ -35,11 +35,11 @@ public class OrderController extends HttpServlet {
             case "order":
                 viewOrder(request, response);
                 break;
-            case "order_detail":
-                viewOrderDetail(request, response);
             case "done":
                 viewThankYou(request, response);
                 break;
+            case "order_detail":
+                viewOrderDetail(request, response);
             default:
                 viewOrder(request, response);
                 break;
