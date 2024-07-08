@@ -18,7 +18,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:void(0)"><img src="logo_daisy.png" alt="" width="50px" height="50px"></a>
+        <a class="navbar-brand" href="/daisy?action=logo"><img src="logo_daisy.png" alt="" width="50px" height="50px"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +34,7 @@
                     <a class="nav-link" href="javascript:void(0)">Phụ Kiện</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Giỏ Hàng</a>
+                    <a class="nav-link" href="/cart">Giỏ Hàng</a>
                 </li>
             </ul>
             <form class="d-flex mt-2" method="post" action="${pageContext.request.contextPath}/daisy">
@@ -51,7 +51,8 @@
                                 ${username}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="/login?action=infor">Infor</a></li>
+                            <li><a class="dropdown-item" href="/user?action=info">My account</a></li>
+                            <li><a class="dropdown-item" href="/order?action=order">Your order</a></li>
                             <li><a class="dropdown-item" href="/login?action=logout">Logout</a></li>
                         </ul>
                     </div>
