@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Order Details</title>
@@ -34,66 +35,22 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/daisy"><img src="logo_daisy.png" alt="" width="50px" height="50px"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Áo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Quần</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Phụ Kiện</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cart">Giỏ Hàng</a>
-                </li>
-            </ul>
-            <form class="d-flex mt-2">
-                <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-light" type="button">Search</button>
-            </form>
-            <%--            <a href="/login?action=login" class="btn btn-outline-warning ms-2 mb-2">Login</a>--%>
-            <c:choose>
-                <c:when test="${not empty username}">
-                    <div class="dropdown ms-2 mb-2">
-                        <button class="btn btn-outline-warning dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                ${username}
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="/user?action=info">My account</a></li>
-                            <li><a class="dropdown-item" href="/user?action=order">Your order</a></li>
-                            <li><a class="dropdown-item" href="/login?action=logout">Logout</a></li>
-                        </ul>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <a href="/login?action=login" class="btn btn-outline-warning ms-2 mb-2">Login</a>
-                </c:otherwise>
-            </c:choose>
-        </div>
-    </div>
-</nav>
+<%@ include file="/navbar/navbar.jsp" %>
+
 <section class="h-100 gradient-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-10 col-xl-8">
                 <div class="card" style="border-radius: 10px;">
                     <div class="card-header px-4 py-5 bg-warning-custom">
-                        <h5 class="text-muted mb-0">Thanks for your Order, <span>Anna</span>!</h5>
+                        <h5 class="text-muted mb-0">Thanks for your Order</h5>
                     </div>
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
-                            <p class="small text-muted mb-0">Date order: </p>
+                            <p class="small text-muted mb-0">Date order: ${orderDetails[0].date}</p>
                         </div>
-
+                        <c:set var="total" value="${0}"></c:set>
                         <c:forEach var="detail" items="${orderDetails}">
                             <div class="card shadow-0 border mb-4">
                                 <div class="card-body">
@@ -108,34 +65,32 @@
                                             <p class="text-muted mb-0 small">Quantity: ${detail.quantity}</p>
                                         </div>
                                         <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                            <p class="text-muted mb-0 small">Price: ${detail.price} VND</p>
+<%--                                            <p class="text-muted mb-0 small">Price: ${detail.price} VND</p>--%>
+                                            <p class="text-muted mb-0 small"><fmt:formatNumber type="number" maxFractionDigits="5" value="${detail.price}" />VND</p>
                                         </div>
                                         <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                            <p class="text-muted mb-0 small">${detail.status}</p>
+<%--                                            <p class="text-muted mb-0 small">${detail.status}</p>--%>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <c:set var="total" value="${total + detail.quantity * detail.price}"></c:set>
                         </c:forEach>
 
 
                         <div class="d-flex justify-content-between pt-2">
                             <p class="fw-bold mb-0">Order Details</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> $898.00</p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span><fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND</p>
                         </div>
 
                         <div class="d-flex justify-content-between pt-2">
-                            <p class="text-muted mb-0">Invoice Number : 788152</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> $19.00</p>
+                            <p class="fw-bold mb-0">Ship</p>
+                            <p class="text-muted mb-0">Free</p>
                         </div>
 
-                        <div class="d-flex justify-content-between mb-5">
-                            <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
-                        </div>
                         <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
                         <h5 class="d-flex align-items-center justify-content-end text-uppercase mb-0">Total
-                            paid: <span class="h2 mb-0 ms-2">$1040</span></h5>
+                            paid: <span class="h2 mb-0 ms-2"><fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND</span></h5>
                     </div>
                 </div>
             </div>

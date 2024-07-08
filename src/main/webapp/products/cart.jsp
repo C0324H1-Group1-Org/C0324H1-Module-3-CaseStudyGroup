@@ -63,7 +63,7 @@
                         </td>
                         <td class="align-middle"><fmt:formatNumber type="number" maxFractionDigits="5" value="${cart.priceQuantity}" /> VND</td>
                         <td class="align-middle">
-                            <button type="submit" class="btn btn-outline-warning" >Cập nhật</button>
+                            <button type="submit" class="btn btn-warning" >Cập nhật</button>
                             <input type="hidden" name="idProduct" value="${cart.idProduct}">
                             <input type="hidden" name="idCart" value="${cart.idCart}">
                         </form>
@@ -75,7 +75,7 @@
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal${cart.idCart}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content bg-black text-white">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Xác nhận xóa</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -86,7 +86,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
                                         <form action="/cart?action=delete" method="post">
-                                            <button type="submit" class="btn btn-primary" >Xóa</button>
+                                            <button type="submit" class="btn btn-warning" >Xóa</button>
                                             <input type="hidden" name="idProduct" value="${cart.idProduct}">
                                             <input type="hidden" name="idCart" value="${cart.idCart}">
                                         </form>
@@ -101,7 +101,7 @@
 
 
                 <tr>
-                    <td><a href="/daisy"><button type="button" class="btn btn-outline-secondary" >Quay lại mua hàng</button></a></td>
+                    <td><a href="/daisy"><button type="button" class="btn btn-secondary" >Quay lại mua hàng</button></a></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -109,7 +109,7 @@
                         Tổng tiền <br>
                         <fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND
                     </td>
-                        <td><a href="/order?action=order"><button type="submit" class="btn btn-outline-warning">Đặt hàng</button></a></td>
+                        <td><a href="/order?action=order"><button type="submit" class="btn btn-warning">Đặt hàng</button></a></td>
                 </tr>
 
                 </tbody>
