@@ -20,6 +20,11 @@ public class Productdetail extends HttpServlet {
         String id = req.getParameter("pid");
         Product p = productService.getProductById(id);
         req.setAttribute("detail",p);
-        req.getRequestDispatcher("productdetail.jsp").forward(req,resp);
+        req.getRequestDispatcher("/products/productdetail.jsp").forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
     }
 }

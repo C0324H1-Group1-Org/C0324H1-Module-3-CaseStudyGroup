@@ -2,6 +2,7 @@ package com.example.c0324h1module3casestudygroup.repositories.implement;
 
 import com.example.c0324h1module3casestudygroup.dto.ProductDTO;
 import com.example.c0324h1module3casestudygroup.models.Product;
+import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
 import com.example.c0324h1module3casestudygroup.repositories.IProductsRepository;
 
 import java.sql.PreparedStatement;

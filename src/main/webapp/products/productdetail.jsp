@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Chi tiết sản phẩm</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
+<%--    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />--%>
     <link href="styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Core theme CSS (includes Bootstrap)-->
+
 </head>
 <body>
 <!-- Navigation-->
+<%@ include file="/navbar/navbar.jsp" %>
 <!-- Product section-->
-<section class="py-5">
+<div class="py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${detail.UrlImage}" alt="..." /></div>
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${detail.getUrlImage()}" alt="..." /></div>
             <div class="col-md-6">
-<%--                <div class="small mb-1">SKU: BST-498</div>--%>
                 <h1 class="display-5 fw-bolder">${detail.name}</h1>
                 <div class="fs-5 mb-5">
-                    <span class="text-decoration-line-through">$45.00</span>
-                    <span>${detail.price}</span>
+                    <span><fmt:formatNumber type="number" maxFractionDigits="5" value="${detail.price}" />VND</span>
                 </div>
                 <p class="lead">${detail.description}</p>
                 <div class="d-flex">
@@ -38,12 +41,15 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 <!-- Related items section-->
 
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+</footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
 </body>
 </html>

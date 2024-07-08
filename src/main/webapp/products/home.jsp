@@ -57,9 +57,9 @@
         <c:forEach items="${products}" var="product">
             <div class="col">
                 <div class="card border border-warning border-3">
-                    <img  src="${product.getUrlImage()}" class="card-img-top" alt="...">
+                 <a href="/productdetail?pid=${product.id}"><img  src="${product.getUrlImage()}" class="card-img-top" alt="..."></a>
                     <div class="card-body">
-                        <h5 href="/productdetail?pid=${product.id}" class="card-title">${product.name}</h5>
+                        <h5 class="card-title">${product.name}</h5>
                         <div >
                             <p>${product.price} VND</p>
                         </div>

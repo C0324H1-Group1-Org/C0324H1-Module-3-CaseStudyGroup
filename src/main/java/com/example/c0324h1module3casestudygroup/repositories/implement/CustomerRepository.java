@@ -3,6 +3,7 @@ package com.example.c0324h1module3casestudygroup.repositories.implement;
 import com.example.c0324h1module3casestudygroup.dto.CartDTO;
 import com.example.c0324h1module3casestudygroup.models.Account;
 import com.example.c0324h1module3casestudygroup.models.Customer;
+import com.example.c0324h1module3casestudygroup.repositories.BaseRepository;
 import com.example.c0324h1module3casestudygroup.repositories.ICustomerRepository;
 
 import java.sql.PreparedStatement;
