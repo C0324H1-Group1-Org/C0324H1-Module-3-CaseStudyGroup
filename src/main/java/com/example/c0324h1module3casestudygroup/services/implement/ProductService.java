@@ -1,6 +1,7 @@
 package com.example.c0324h1module3casestudygroup.services.implement;
 
 import com.example.c0324h1module3casestudygroup.dto.ProductDTO;
+import com.example.c0324h1module3casestudygroup.models.Product;
 import com.example.c0324h1module3casestudygroup.repositories.IProductsRepository;
 import com.example.c0324h1module3casestudygroup.repositories.implement.ProductsRepository;
 import com.example.c0324h1module3casestudygroup.services.IProductService;
@@ -22,5 +23,10 @@ public class ProductService implements IProductService {
     @Override
     public List<ProductDTO> findByName(String name) {
         return productsRepository.findByName(name);
+    }
+
+    @Override
+    public Product getProductById(String id) {
+        return productsRepository.getProductById(id);
     }
 }

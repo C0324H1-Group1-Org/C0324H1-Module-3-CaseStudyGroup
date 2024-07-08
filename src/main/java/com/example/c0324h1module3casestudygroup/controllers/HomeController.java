@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @WebServlet (name = "HomeController",value = "/daisy")
 public class HomeController extends HttpServlet {
@@ -79,11 +80,19 @@ public class HomeController extends HttpServlet {
                     break;
                 case "search":
                     String search = req.getParameter("search");
-                    List<ProductDTO> productDTOS = productService.findByName(search);
-                    req.setAttribute("products", productDTOS);
-                    req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
-                    resp.sendRedirect(req.getContextPath() + "/daisy");
-                    break;
+                    if (search.isEmpty()){
+                        List<ProductDTO> productDTOS1 = productService.findAllProduct();
+                        req.setAttribute("products", productDTOS1);
+                        req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
+                        break;
+                    }
+                    else {
+                        List<ProductDTO> productDTOS = productService.findByName(search);
+                        req.setAttribute("products", productDTOS);
+                        req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
+                        resp.sendRedirect(req.getContextPath() + "/daisy");
+                        break;
+                    }
                 case "logo":
                 default:
                     resp.sendRedirect(req.getContextPath() + "/daisy");
