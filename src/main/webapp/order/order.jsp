@@ -113,7 +113,7 @@
                   </label>
                 </div>
               </div>
-              <form action="order?action=order&id=${order.id}" method="post">
+              <form action="order?action=done" method="post">
                 <div class="col-12 text-center">
                   <button class="btn btn-warning btn-lg" type="submit">Xác nhận</button>
                 </div>

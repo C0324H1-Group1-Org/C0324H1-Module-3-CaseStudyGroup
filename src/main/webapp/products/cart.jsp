@@ -99,7 +99,7 @@
                         Tong tien <br>
                         <fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND
                     </td>
-                    <td><button type="button" class="btn btn-outline-success">Dat hang</button></td>
+                        <td><a href="/order?action=order"><button type="submit" class="btn btn-outline-success">Đặt hàng</button></a></td>
                 </tr>
 
                 </tbody>
