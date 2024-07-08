@@ -8,6 +8,7 @@ import com.example.c0324h1module3casestudygroup.repositories.ICustomerRepository
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,6 +86,52 @@ public class CustomerRepository implements ICustomerRepository {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    @Override
+    public void addToCart(int customerId,int idProduct, int quantity) {
+        String sql = "select * from cart where id_customer = ?";
+        String sql_cart_item = "select * from cart_item where id_cart=? and id_product=?";
+        String sql_increase_quantity = "update cart_item set quantity=? where id_cart=? and id_product=?";
+        String sql_new_cart = "insert into cart(id_customer) values (?)";
+        String sql_new_cart_item = "insert into cart_item values (?,?,?)";
+        int cartId = 0;
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1,customerId);
+            ResultSet set = preparedStatement.executeQuery();
+            if (set.next()){
+                cartId = set.getInt("id_cart");
+            } else {
+                PreparedStatement addNewCart = BaseRepository.getConnection().prepareStatement(sql_new_cart, Statement.RETURN_GENERATED_KEYS);
+                addNewCart.setInt(1,customerId);
+                ResultSet keyNewCart = addNewCart.getGeneratedKeys();
+                if (keyNewCart.next()){
+                    cartId = keyNewCart.getInt(1);
+                }
+            }
+            PreparedStatement preparedStatement1 = BaseRepository.getConnection().prepareStatement(sql_cart_item);
+            preparedStatement1.setInt(1,cartId);
+            preparedStatement1.setInt(2,idProduct);
+            ResultSet set1 = preparedStatement1.executeQuery();
+            if (set1.next()){
+                int oldQuantity = set1.getInt("quantity");
+                int newQuantity = oldQuantity + quantity;
+                PreparedStatement preparedStatement2 = BaseRepository.getConnection().prepareStatement(sql_increase_quantity);
+                preparedStatement2.setInt(1,newQuantity);
+                preparedStatement2.setInt(2,cartId);
+                preparedStatement2.setInt(3,idProduct);
+                preparedStatement2.executeUpdate();
+            } else {
+                PreparedStatement addNewCartItem = BaseRepository.getConnection().prepareStatement(sql_new_cart_item);
+                addNewCartItem.setInt(1,cartId);
+                addNewCartItem.setInt(2,idProduct);
+                addNewCartItem.setInt(3,quantity);
+                addNewCartItem.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
