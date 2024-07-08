@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/daisy?action= shirts">Áo</a>
+                    <a class="nav-link" href="/daisy?action=shirts">Áo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/daisy?action= pants">Quần</a>
+                    <a class="nav-link" href="/daisy?action=pants">Quần</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">Phụ Kiện</a>
@@ -37,11 +37,11 @@
                     <a class="nav-link" href="javascript:void(0)">Giỏ Hàng</a>
                 </li>
             </ul>
-            <form class="d-flex mt-2" method="post">
+            <form class="d-flex mt-2" method="post" action="${pageContext.request.contextPath}/daisy">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                 <input type="hidden" name="action" value="search">
 <%--                <input class="form-control me-2" type="text" placeholder="Search">--%>
-                <button class="btn btn-outline-light" type="button">Search</button>
+                <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
 <%--            <a href="/login?action=login" class="btn btn-outline-warning ms-2 mb-2">Login</a>--%>
             <c:choose>

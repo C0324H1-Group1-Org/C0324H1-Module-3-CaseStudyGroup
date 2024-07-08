@@ -27,15 +27,15 @@ public class HomeController extends HttpServlet {
         }
         switch (action) {
             case "shirts":
-                id_type_product = 2;
+                id_type_product = 1;
                 List<ProductDTO> productShirtDTOS = productService.findProductByIdType(id_type_product);
-                req.setAttribute("shirts", productShirtDTOS);
+                req.setAttribute("products", productShirtDTOS);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
                 break;
             case "pants":
-                id_type_product = 1;
+                id_type_product = 2;
                 List<ProductDTO> productPantDTOS = productService.findProductByIdType(id_type_product);
-                req.setAttribute("shirts", productPantDTOS);
+                req.setAttribute("products", productPantDTOS);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
                 break;
             default:
@@ -57,16 +57,15 @@ public class HomeController extends HttpServlet {
         }
         switch (action) {
             case "shirts":
-                id_type_product = 2;
+                id_type_product = 1;
                 List<ProductDTO> productShirtDTOS = productService.findProductByIdType(id_type_product);
-                req.setAttribute("shirts", productShirtDTOS);
+                req.setAttribute("products", productShirtDTOS);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
-                resp.sendRedirect(req.getContextPath() + "/daisy");
                 break;
             case "pants":
-                id_type_product = 1;
+                id_type_product = 2;
                 List<ProductDTO> productPantDTOS = productService.findProductByIdType(id_type_product);
-                req.setAttribute("shirts", productPantDTOS);
+                req.setAttribute("products", productPantDTOS);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
                 resp.sendRedirect(req.getContextPath() + "/daisy");
                 break;
@@ -75,6 +74,7 @@ public class HomeController extends HttpServlet {
                 List<ProductDTO> productDTOS = productService.findByName(search);
                 req.setAttribute("products", productDTOS);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + "/daisy");
                 break;
             default:
                 resp.sendRedirect(req.getContextPath() + "/daisy");
