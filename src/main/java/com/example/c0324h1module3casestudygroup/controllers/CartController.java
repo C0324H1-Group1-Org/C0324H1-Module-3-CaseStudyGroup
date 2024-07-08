@@ -27,7 +27,7 @@ public class CartController extends HttpServlet {
         switch (action){
             default:
                 HttpSession httpSession = req.getSession(false);
-                if (httpSession != null){
+                if (httpSession != null && httpSession.getAttribute("username") != null){
                     List<CartDTO> cartDTOS = customerService.getCart((String) httpSession.getAttribute("username"));
                     req.setAttribute("carts",cartDTOS);
                     req.getRequestDispatcher("/products/cart.jsp").forward(req,resp);

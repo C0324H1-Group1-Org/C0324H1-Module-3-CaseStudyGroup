@@ -49,7 +49,8 @@
                                 ${username}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="/login?action=infor">Infor</a></li>
+                            <li><a class="dropdown-item" href="/user?action=info">My account</a></li>
+                            <li><a class="dropdown-item" href="/order?action=order">Your order</a></li>
                             <li><a class="dropdown-item" href="/login?action=logout">Logout</a></li>
                         </ul>
                     </div>
