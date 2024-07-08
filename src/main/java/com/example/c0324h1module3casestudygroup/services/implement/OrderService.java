@@ -1,6 +1,7 @@
 package com.example.c0324h1module3casestudygroup.services.implement;
 
 import com.example.c0324h1module3casestudygroup.dto.CartDTO;
+import com.example.c0324h1module3casestudygroup.dto.OrderDTO;
 import com.example.c0324h1module3casestudygroup.dto.OrderDetailDTO;
 import com.example.c0324h1module3casestudygroup.repositories.IOrderRepository;
 import com.example.c0324h1module3casestudygroup.repositories.implement.OrderRepository;
@@ -24,5 +25,10 @@ public class OrderService implements IOrderService {
     @Override
     public List<OrderDetailDTO> getOrderDetailsByOrderId(int orderId) {
         return orderRepository.getOrderDetailsByOrderId(orderId);
+    }
+
+    @Override
+    public List<OrderDTO> getOrderByCustomerId(int customerId) {
+        return orderRepository.getOrderByCustomerId(customerId);
     }
 }

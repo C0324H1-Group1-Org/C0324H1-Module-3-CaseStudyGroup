@@ -105,6 +105,7 @@ public class CustomerRepository implements ICustomerRepository {
             } else {
                 PreparedStatement addNewCart = BaseRepository.getConnection().prepareStatement(sql_new_cart, Statement.RETURN_GENERATED_KEYS);
                 addNewCart.setInt(1,customerId);
+                addNewCart.executeUpdate();
                 ResultSet keyNewCart = addNewCart.getGeneratedKeys();
                 if (keyNewCart.next()){
                     cartId = keyNewCart.getInt(1);

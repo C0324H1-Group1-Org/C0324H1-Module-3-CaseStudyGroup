@@ -45,13 +45,17 @@
                     <div class="card-header px-4 py-5 bg-warning-custom">
                         <h5 class="text-muted mb-0">Thanks for your Order</h5>
                     </div>
+
+                    <c:forEach var="orderDetail" items="${orderDetails}">
+
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
-                            <p class="small text-muted mb-0">Date order: ${orderDetails[0].date}</p>
+                            <p class="small text-muted mb-0">Date order: ${orderDetail.dateOrder}</p>
+                            <p class="text-muted mb-0 small">${orderDetail.status}</p>
                         </div>
                         <c:set var="total" value="${0}"></c:set>
-                        <c:forEach var="detail" items="${orderDetails}">
+                        <c:forEach var="detail" items="${orderDetail.orderProductDTOS}">
                             <div class="card shadow-0 border mb-4">
                                 <div class="card-body">
                                     <div class="row">
@@ -59,7 +63,7 @@
                                             <img src="${detail.urlImage}" class="img-fluid" alt="Product Image">
                                         </div>
                                         <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                            <p class="text-muted mb-0">${detail.name}</p>
+                                            <p class="text-muted mb-0">${detail.nameProduct}</p>
                                         </div>
                                         <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                                             <p class="text-muted mb-0 small">Quantity: ${detail.quantity}</p>
@@ -69,7 +73,7 @@
                                             <p class="text-muted mb-0 small"><fmt:formatNumber type="number" maxFractionDigits="5" value="${detail.price}" />VND</p>
                                         </div>
                                         <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-<%--                                            <p class="text-muted mb-0 small">${detail.status}</p>--%>
+                                            <p class="text-muted mb-0 small"><fmt:formatNumber type="number" maxFractionDigits="5" value="${detail.price * detail.quantity}" />VND</p>
                                         </div>
                                     </div>
                                 </div>
@@ -92,6 +96,8 @@
                         <h5 class="d-flex align-items-center justify-content-end text-uppercase mb-0">Total
                             paid: <span class="h2 mb-0 ms-2"><fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND</span></h5>
                     </div>
+                    </c:forEach>
+<%--                    END DIV CARD--%>
                 </div>
             </div>
         </div>

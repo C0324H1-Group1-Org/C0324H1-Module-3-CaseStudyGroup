@@ -1,6 +1,7 @@
 package com.example.c0324h1module3casestudygroup.services;
 
 import com.example.c0324h1module3casestudygroup.dto.CartDTO;
+import com.example.c0324h1module3casestudygroup.dto.OrderDTO;
 import com.example.c0324h1module3casestudygroup.dto.OrderDetailDTO;
 
 import java.time.LocalDate;
@@ -12,4 +13,6 @@ public interface IOrderService {
     void saveOrderDetail(int orderId, List<CartDTO> products);
 
     List<OrderDetailDTO> getOrderDetailsByOrderId(int orderId);
+
+    List<OrderDTO> getOrderByCustomerId(int customerId);
 }
