@@ -16,6 +16,16 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public List<ProductDTO> findProductByIdType(int id) {
+        return productsRepository.findProductByIdType(id);
+    }
+
+    @Override
+    public List<ProductDTO> findByName(String name) {
+        return productsRepository.findByName(name);
+    }
+
+    @Override
     public Product getProductById(String id) {
         return productsRepository.getProductById(id);
     }

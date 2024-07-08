@@ -18,17 +18,17 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:void(0)"><img src="logo_daisy.png" alt="" width="50px" height="50px"></a>
+        <a class="navbar-brand" href="/daisy?action=logo"><img src="logo_daisy.png" alt="" width="50px" height="50px"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Áo</a>
+                    <a class="nav-link" href="/daisy?action=shirts">Áo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Quần</a>
+                    <a class="nav-link" href="/daisy?action=pants">Quần</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">Phụ Kiện</a>
@@ -37,9 +37,11 @@
                     <a class="nav-link" href="/cart">Giỏ Hàng</a>
                 </li>
             </ul>
-            <form class="d-flex mt-2">
-                <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-light" type="button">Search</button>
+            <form class="d-flex mt-2" method="post" action="${pageContext.request.contextPath}/daisy">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <input type="hidden" name="action" value="search">
+<%--                <input class="form-control me-2" type="text" placeholder="Search">--%>
+                <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
 <%--            <a href="/login?action=login" class="btn btn-outline-warning ms-2 mb-2">Login</a>--%>
             <c:choose>
