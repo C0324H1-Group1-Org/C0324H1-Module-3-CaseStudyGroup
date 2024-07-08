@@ -1,9 +1,8 @@
 package com.example.c0324h1module3casestudygroup.controllers;
 
-import com.example.c0324h1module3casestudygroup.models.Account;
-import com.example.c0324h1module3casestudygroup.models.Customer;
-import com.example.c0324h1module3casestudygroup.services.implement.CustomerService;
-import com.example.c0324h1module3casestudygroup.services.ICustomerService;
+import com.example.c0324h1module3casestudygroup.dto.UserDTO;
+import com.example.c0324h1module3casestudygroup.services.IUserService;
+import com.example.c0324h1module3casestudygroup.services.implement.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +15,7 @@ import java.io.IOException;
 
 @WebServlet(name = "LoginServlet",value = "/login")
 public class LoginController extends HttpServlet {
-    ICustomerService customerService = new CustomerService();
+    IUserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +29,13 @@ public class LoginController extends HttpServlet {
                 break;
             case "login":
                 showFormLogin(request, response);
+                break;
+            case "logout":
+                HttpSession session = request.getSession(false);
+                if (session != null) {
+                    session.invalidate();
+                }
+                response.sendRedirect("/daisy");
                 break;
             default:
 //                showFormLogin(request, response);
@@ -78,14 +84,18 @@ public class LoginController extends HttpServlet {
     private void loginCustomer(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        boolean isLogin = customerService.isValidUser(username, password);
+        boolean isLogin = userService.isValidUser(username, password);
         if (isLogin) {
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            try {
-                response.sendRedirect("/daisy");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            int customerId = userService.getUserIdByUsername(username);
+            if (customerId != -1) {
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+                session.setAttribute("customerId", customerId);
+                try {
+                    response.sendRedirect("/daisy");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         } else {
             request.setAttribute("username", username);
@@ -109,27 +119,21 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        if (customerService.isUsernameTaken(username)) {
-            request.setAttribute("name", name);
-            request.setAttribute("phone", phone);
-            request.setAttribute("email", email);
-            request.setAttribute("address", address);
-            request.setAttribute("username", username);
+        UserDTO userDTO = new UserDTO(name, phone, email, address, username, password);
+
+        if (userService.isUsernameTaken(username)) {
+            request.setAttribute("user", userDTO);
             request.setAttribute("message", "Tài khoản đã tồn tại");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login/register.jsp");
             try {
                 dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
+            } catch (ServletException | IOException e) {
                 throw new RuntimeException(e);
             }
             return;
         }
 
-        Customer customer = new Customer(name, phone, email, address);
-        Account account = new Account(username, password);
-        customerService.register(customer, account);
+        userService.register(userDTO);
         try {
             response.sendRedirect("/login?action=login");
         } catch (IOException e) {

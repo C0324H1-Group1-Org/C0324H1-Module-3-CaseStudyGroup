@@ -82,6 +82,15 @@ public class CartDTO {
         this.priceQuantity = priceQuantity;
     }
 
+    public CartDTO(int idCart, String urlImage, int idProduct, String nameProduct, Float price, int quantity) {
+        this.idCart = idCart;
+        this.urlImage = urlImage;
+        this.idProduct = idProduct;
+        this.nameProduct = nameProduct;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public CartDTO(int idCart, String urlImage, int idProduct, String nameProduct, Float price, int quantity, float priceQuantity) {
         this.idCart = idCart;
         this.urlImage = urlImage;
