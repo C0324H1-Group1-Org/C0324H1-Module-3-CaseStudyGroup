@@ -34,7 +34,7 @@
         }
     </style>
 </head>
-<body>
+<body class="gradient-custom">
 <%@ include file="/navbar/navbar.jsp" %>
 
 <section class="h-100 gradient-custom">
@@ -45,7 +45,7 @@
                     <div class="card-header px-4 py-5 bg-warning-custom">
                         <h5 class="text-muted mb-0">Thanks for your Order</h5>
                     </div>
-
+                    <c:set var="totalAll" value="${0}"></c:set>
                     <c:forEach var="orderDetail" items="${orderDetails}">
 
                     <div class="card-body p-4">
@@ -80,8 +80,7 @@
                             </div>
                             <c:set var="total" value="${total + detail.quantity * detail.price}"></c:set>
                         </c:forEach>
-
-
+                        <c:set var="totalAll" value="${totalAll + total}"></c:set>
                         <div class="d-flex justify-content-between pt-2">
                             <p class="fw-bold mb-0">Order Details</p>
                             <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span><fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND</p>
@@ -93,10 +92,11 @@
                         </div>
 
                         <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-                        <h5 class="d-flex align-items-center justify-content-end text-uppercase mb-0">Total
-                            paid: <span class="h2 mb-0 ms-2"><fmt:formatNumber type="number" maxFractionDigits="5" value="${total}" /> VND</span></h5>
+
                     </div>
                     </c:forEach>
+                    <h5 class="d-flex align-items-center justify-content-end text-uppercase mb-0">Total
+                        paid: <span class="h2 mb-0 ms-2"><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalAll}" /> VND</span></h5>
 <%--                    END DIV CARD--%>
                 </div>
             </div>
