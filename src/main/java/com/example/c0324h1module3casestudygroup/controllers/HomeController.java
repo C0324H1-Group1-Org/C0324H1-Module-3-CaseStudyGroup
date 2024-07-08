@@ -29,6 +29,11 @@ public class HomeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int pageId = 1;
+        String page = req.getParameter("page");
+        if (page != null){
+            pageId = Integer.parseInt(page);
+        }
         String action = req.getParameter("action");
         int id_type_product;
         if (action == null) {
@@ -76,23 +81,26 @@ public class HomeController extends HttpServlet {
                     List<ProductDTO> productPantDTOS = productService.findProductByIdType(id_type_product);
                     req.setAttribute("products", productPantDTOS);
                     req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
-                    resp.sendRedirect(req.getContextPath() + "/daisy");
+
                     break;
                 case "search":
                     String search = req.getParameter("search");
-                    if (search.isEmpty()){
+                    if (search == null || search.trim().isEmpty()){
                         List<ProductDTO> productDTOS1 = productService.findAllProduct();
                         req.setAttribute("products", productDTOS1);
                         req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
-                        break;
+                    } else {
+                        List<ProductDTO> productDTOS = productService.findByName(search.trim());
+                        if (productDTOS==null || productDTOS.isEmpty()) {
+                            List<ProductDTO> productDTOS1 = productService.findAllProduct();
+                            req.setAttribute("products", productDTOS1);
+                            req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
+                        } else {
+                            req.setAttribute("products", productDTOS);
+                            req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
+                        }
                     }
-                    else {
-                        List<ProductDTO> productDTOS = productService.findByName(search);
-                        req.setAttribute("products", productDTOS);
-                        req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
-                        resp.sendRedirect(req.getContextPath() + "/daisy");
-                        break;
-                    }
+                    break;
                 case "logo":
                 default:
                     resp.sendRedirect(req.getContextPath() + "/daisy");
