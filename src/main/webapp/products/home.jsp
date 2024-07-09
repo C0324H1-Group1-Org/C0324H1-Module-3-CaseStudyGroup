@@ -15,6 +15,19 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .page-item a{
+            color: black !important;
+            background-color: white !important;
+            border-color: white !important;
+        }
+        .active a{
+            color: white !important;
+            background-color: #FFCA2C !important;
+        }
+
+
+    </style>
 </head>
 <body class="bg-dark text-white">
 <%@ include file="/navbar/navbar.jsp" %>
@@ -122,7 +135,35 @@
 <%-->>>>>>> de1f7261adb5a466389d519e9a882d752281f193--%>
 
     </div>
-    <a href="/daisy?page=1">1</a>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center mt-5">
+            <c:if test="${currentPage != 1}">
+                <li class="page-item">
+                    <a class="page-link" href="/daisy?page=${currentPage - 1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <li class="page-item active"><a class="page-link" >${i}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="/daisy?page=${i}">${i}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:if test="${currentPage lt noOfPages}">
+                <li class="page-item">
+                    <a class="page-link" href="/daisy?page=${currentPage + 1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </nav>
 
 </div>
 </div>
