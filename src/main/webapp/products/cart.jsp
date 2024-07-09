@@ -26,15 +26,15 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #040303">
 <%@ include file="/navbar/navbar.jsp" %>
 <div class="container mt-2">
     <h2 class="display-4">GIỎ HÀNG</h2>
     <hr>
     <c:choose>
         <c:when test="${empty carts}">
-            <p>Ban chua them san pham nao vao gio hang</p>
-            <a href="/daisy"><button type="button" class="btn btn-outline-success" >Quay lai mua hang</button></a>
+            <p>Bạn chưa thêm sa phẩm nào vào giỏ hàng</p>
+            <a href="/daisy"><button type="button" class="btn btn-warning" >Quay lại mua hàng</button></a>
         </c:when>
         <c:otherwise>
             <c:set var="total" value="${0}"></c:set>
