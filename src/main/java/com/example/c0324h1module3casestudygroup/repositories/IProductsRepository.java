@@ -8,10 +8,14 @@ import java.util.List;
 public interface IProductsRepository {
     List<ProductDTO> findAllProduct();
 
-    List<ProductDTO> findProductByIdType(int id);
+    List<ProductDTO> findProductByIdType(int idTypeProduct, int i, int recordsPerPage);
 
     List<ProductDTO> findByName(String name);
 
     Product getProductById(String id);
+
+    List<ProductDTO> findAllProduct(int i, int recordsPerPage);
+
+    int getNumberOfRow();
 }
 

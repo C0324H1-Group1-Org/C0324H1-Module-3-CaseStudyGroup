@@ -34,6 +34,8 @@ public class HomeController extends HttpServlet {
         if (page != null){
             pageId = Integer.parseInt(page);
         }
+        int recordsPerPage = 8;
+
         String action = req.getParameter("action");
         int id_type_product;
         if (action == null) {
@@ -42,20 +44,33 @@ public class HomeController extends HttpServlet {
         switch (action) {
             case "shirts":
                 id_type_product = 1;
-                List<ProductDTO> productShirtDTOS = productService.findProductByIdType(id_type_product);
+                List<ProductDTO> productShirtDTOS = productService.findProductByIdType(id_type_product,(pageId-1) * recordsPerPage,recordsPerPage);
+                int numberOfRowShirt = productService.getNumberOfRow();
+                int numberOfPageShirt = (int)Math.ceil(numberOfRowShirt * 1.0 / recordsPerPage);
                 req.setAttribute("products", productShirtDTOS);
+                req.setAttribute("noOfPages", numberOfPageShirt);
+                req.setAttribute("currentPage", pageId);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
                 break;
             case "pants":
                 id_type_product = 2;
-                List<ProductDTO> productPantDTOS = productService.findProductByIdType(id_type_product);
+                List<ProductDTO> productPantDTOS = productService.findProductByIdType(id_type_product,(pageId-1) * recordsPerPage,recordsPerPage);
+                int numberOfRowPant = productService.getNumberOfRow();
+                int numberOfPagePant = (int)Math.ceil(numberOfRowPant * 1.0 / recordsPerPage);
                 req.setAttribute("products", productPantDTOS);
+                req.setAttribute("noOfPages", numberOfPagePant);
+                req.setAttribute("currentPage", pageId);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
                 break;
             case "logo":
             default:
-                List<ProductDTO> productDTOS1 = productService.findAllProduct();
+                List<ProductDTO> productDTOS1 = productService.findAllProduct((pageId-1) * recordsPerPage,recordsPerPage);
+                int numberOfRow = productService.getNumberOfRow();
+                int numberOfPage = (int)Math.ceil(numberOfRow * 1.0 / recordsPerPage);
+//                List<ProductDTO> productDTOS1 = productService.findAllProduct();
                 req.setAttribute("products", productDTOS1);
+                req.setAttribute("noOfPages", numberOfPage);
+                req.setAttribute("currentPage", pageId);
                 req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
                 break;
         }
@@ -71,16 +86,16 @@ public class HomeController extends HttpServlet {
             }
             switch (action) {
                 case "shirts":
-                    id_type_product = 1;
-                    List<ProductDTO> productShirtDTOS = productService.findProductByIdType(id_type_product);
-                    req.setAttribute("products", productShirtDTOS);
-                    req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
+//                    id_type_product = 1;
+//                    List<ProductDTO> productShirtDTOS = productService.findProductByIdType(id_type_product);
+//                    req.setAttribute("products", productShirtDTOS);
+//                    req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
                     break;
                 case "pants":
-                    id_type_product = 2;
-                    List<ProductDTO> productPantDTOS = productService.findProductByIdType(id_type_product);
-                    req.setAttribute("products", productPantDTOS);
-                    req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
+//                    id_type_product = 2;
+//                    List<ProductDTO> productPantDTOS = productService.findProductByIdType(id_type_product);
+//                    req.setAttribute("products", productPantDTOS);
+//                    req.getRequestDispatcher("/products/home.jsp").forward(req, resp);
 
                     break;
                 case "search":

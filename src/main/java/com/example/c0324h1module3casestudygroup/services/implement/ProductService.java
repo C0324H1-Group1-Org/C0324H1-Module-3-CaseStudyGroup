@@ -16,8 +16,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<ProductDTO> findProductByIdType(int id) {
-        return productsRepository.findProductByIdType(id);
+    public List<ProductDTO> findProductByIdType(int idTypeProduct, int i, int recordsPerPage) {
+        return productsRepository.findProductByIdType(idTypeProduct,i,recordsPerPage);
     }
 
     @Override
@@ -28,5 +28,15 @@ public class ProductService implements IProductService {
     @Override
     public Product getProductById(String id) {
         return productsRepository.getProductById(id);
+    }
+
+    @Override
+    public List<ProductDTO> findAllProduct(int i, int recordsPerPage) {
+        return productsRepository.findAllProduct(i,recordsPerPage);
+    }
+
+    @Override
+    public int getNumberOfRow() {
+        return productsRepository.getNumberOfRow();
     }
 }
